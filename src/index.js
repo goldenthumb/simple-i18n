@@ -33,4 +33,4 @@ class SimpleI18n {
   }
 }
 
-module.exports = SimpleI18n;
+export default SimpleI18n;

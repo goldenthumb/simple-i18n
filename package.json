@@ -1,12 +1,12 @@
 {
   "name": "@goldenthumb/simple-i18n",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "i18n",
   "main": "./dist/index.js",
   "module": "dist/index.mjs",
   "files": ["dist"],
   "scripts": {
-    "publishOnly": "npm run build",
+    "prepublishOnly": "npm run build",
     "build": "microbundle build -i src/index.js --compress false",
     "test": "jest test"
   },
