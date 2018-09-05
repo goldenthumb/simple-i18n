@@ -1,4 +1,4 @@
-import SimpleI18n from './index';
+import SimpleI18n from '../dist';
 
 test('basic', () => {
   const i18n = new SimpleI18n({

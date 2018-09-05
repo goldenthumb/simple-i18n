@@ -1,14 +1,13 @@
 {
-  "name": "simple-i18n",
+  "name": "@goldenthumb/simple-i18n",
   "version": "0.0.1",
-  "description": "",
+  "description": "i18n",
   "main": "./dist/index.js",
-  "files": [
-    "dist",
-    "src/index.js"
-  ],
+  "module": "dist/index.mjs",
+  "files": ["dist"],
   "scripts": {
-    "build": "webpack",
+    "publishOnly": "npm run build",
+    "build": "microbundle build -i src/index.js --compress false",
     "test": "jest test"
   },
   "repository": {
@@ -30,5 +29,11 @@
     "regenerator-runtime": "^0.12.1",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "microbundle": "^0.6.0"
   }
 }
