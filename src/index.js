@@ -7,6 +7,10 @@ class SimpleI18n {
     this._messages = { ...messages };
   }
 
+  get locale() {
+    return this._locale;
+  }
+
   switchLang(locale) {
     this._locale = locale;
     return this;

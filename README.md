@@ -45,6 +45,7 @@ i18n.message('hello');
 i18n.message('bye')
 > 안녕하세요.
 > goodbye.
+```
 
 ## License
 MIT
