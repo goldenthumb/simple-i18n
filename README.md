@@ -47,5 +47,43 @@ i18n.message('bye')
 > goodbye.
 ```
 
+## Using by with @goldenthumb/simple-i18n-csv-to-json
+[@goldenthumb/simple-i18n-csv-to-json](https://github.com/goldenthumb/simple-i18n-csv-to-json)
+### sample csv
+![example excel](https://raw.githubusercontent.com/goldenthumb/simple-i18n-csv-to-json/master/sample.png)
+,ko,en,ja,zh_CN,zh_TW <br>
+yes,예,Yes,はい,是的,是的 <br>
+no,아니오,No,いいえ,没有,沒有 <br>
+
+```sh
+npm install @goldenthumb/simple-i18n @goldenthumb/simple-i18n-csv-to-json
+```
+
+```js
+const SimpleI18n = require('@goldenthumb/simple-i18n');
+const toJson = require('@goldenthumb/simple-i18n-csv-to-json');
+
+(async () => {
+  try {
+    const messages = await toJson('./sample.csv');
+    const i18n = new SimpleI18n({
+      defaultLocale: ['en'],
+      locale: 'en',
+      messages
+    });
+
+    i18n.message('yes')
+    > Yes.
+
+    i18n.switchLang('ja');
+    i18n.message('no');
+    > いいえ
+  } catch(e) {
+    console.log(e);
+  }
+})();
+
+```
+
 ## License
 MIT

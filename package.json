@@ -1,10 +1,12 @@
 {
   "name": "@goldenthumb/simple-i18n",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "i18n",
   "main": "./dist/index.js",
   "module": "dist/index.mjs",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "microbundle build -i src/index.js --compress false",
@@ -19,6 +21,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@goldenthumb/simple-i18n-csv-to-json": "^0.1.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
