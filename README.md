@@ -50,7 +50,7 @@ i18n.message('bye')
 ## Using by with @goldenthumb/simple-i18n-csv-to-json
 [@goldenthumb/simple-i18n-csv-to-json](https://github.com/goldenthumb/simple-i18n-csv-to-json)
 ### sample csv
-![example excel](https://raw.githubusercontent.com/goldenthumb/simple-i18n-csv-to-json/master/sample.png)
+![example excel](https://raw.githubusercontent.com/goldenthumb/simple-i18n-csv-to-json/master/sample.png) <br>
 ,ko,en,ja,zh_CN,zh_TW <br>
 yes,예,Yes,はい,是的,是的 <br>
 no,아니오,No,いいえ,没有,沒有 <br>
