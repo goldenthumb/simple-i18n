@@ -14,8 +14,7 @@ test('basic', () => {
         bye: 'goodbye.'
       },
       ['ja']: {
-        hello: 'こんにちは。',
-        bye: 'さようなら。'
+        hello: 'こんにちは。'
       }
     }
   });
@@ -23,7 +22,7 @@ test('basic', () => {
   expect(i18n.message('hello')).toBe('hello.');
 
   i18n.switchLang('ja');
-  expect(i18n.message('bye')).toBe('さようなら。');
+  expect(i18n.message('bye')).toBe('goodbye.');
 
   i18n.switchLang('ko');
   expect(i18n.message('hello')).toBe('안녕하세요.');
