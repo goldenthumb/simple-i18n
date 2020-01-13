@@ -1,6 +1,9 @@
 # simple-i18n
 [![npm](https://img.shields.io/npm/v/@goldenthumb/simple-i18n.svg)](https://www.npmjs.com/package/@goldenthumb/simple-i18n)
 
+<br />
+<br />
+
 ## Install
 ```sh
 npm install @goldenthumb/simple-i18n
@@ -12,6 +15,9 @@ import SimpleI18n from '@goldenthumb/simple-i18n';
 //commonjs
 const SimpleI18n = require('@goldenthumb/simple-i18n');
 ```
+
+<br />
+<br />
 
 ## Example
 ```js
@@ -46,6 +52,22 @@ i18n.message('bye')
 > 안녕하세요.
 > goodbye.
 ```
+```js
+const i18n = new SimpleI18n({
+  fallbackLocales: ['ko'],
+  locale: 'ko',
+  messages: {
+    ['ko']: {
+      product: '이것은 {{money}}원 이고, {{size}}개 들어있습니다.'
+    }
+  }
+});
+
+i18n.message('product', { money: 500, size: 2 })
+> '이것은 500원 이고, 2개 들어있습니다.'
+```
+<br />
+<br />
 
 ## Using by with @goldenthumb/simple-i18n-csv-to-json
 [@goldenthumb/simple-i18n-csv-to-json](https://github.com/goldenthumb/simple-i18n-csv-to-json)
@@ -64,23 +86,19 @@ const SimpleI18n = require('@goldenthumb/simple-i18n');
 const toJson = require('@goldenthumb/simple-i18n-csv-to-json');
 
 (async () => {
-  try {
-    const messages = await toJson('./sample.csv');
-    const i18n = new SimpleI18n({
-      defaultLocale: ['en'],
-      locale: 'en',
-      messages
-    });
+const messages = await toJson(path.resolve(__dirname, './sample.csv'));
+  const i18n = new SimpleI18n({
+    defaultLocale: ['en'],
+    locale: 'en',
+    messages
+  });
 
-    i18n.message('yes')
-    > Yes.
+  i18n.message('yes')
+  > Yes.
 
-    i18n.switchLang('ja');
-    i18n.message('no');
-    > いいえ
-  } catch(e) {
-    console.log(e);
-  }
+  i18n.switchLang('ja');
+  i18n.message('no');
+  > いいえ
 })();
 
 ```
