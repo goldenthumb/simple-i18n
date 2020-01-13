@@ -1,40 +1,39 @@
 {
-  "name": "@goldenthumb/simple-i18n",
-  "version": "0.1.1",
-  "description": "i18n",
-  "main": "./dist/index.js",
-  "module": "dist/index.mjs",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "microbundle build -i src/index.js --compress false",
-    "test": "jest test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/goldenthumb/simple-i18n.git"
-  },
-  "keywords": [
-    "i18n"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "@goldenthumb/simple-i18n-csv-to-json": "^0.1.1",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^23.5.0",
-    "microbundle": "^0.6.0",
-    "regenerator-runtime": "^0.12.1",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+    "name": "@goldenthumb/simple-i18n",
+    "version": "0.1.1",
+    "description": "i18n",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "prepublishOnly": "npm run build",
+        "build": "microbundle build -i src/index.js --compress false",
+        "test": "jest test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/goldenthumb/simple-i18n.git"
+    },
+    "keywords": [
+        "i18n"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.8.0",
+        "@babel/plugin-transform-runtime": "^7.8.0",
+        "@babel/preset-env": "^7.8.2",
+        "@goldenthumb/simple-i18n-csv-to-json": "^0.2.2",
+        "babel-jest": "^24.9.0",
+        "jest": "^24.9.0",
+        "microbundle": "^0.11.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.8.0"
+    }
 }
