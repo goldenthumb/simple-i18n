@@ -2,7 +2,6 @@
 [![npm](https://img.shields.io/npm/v/@goldenthumb/simple-i18n.svg)](https://www.npmjs.com/package/@goldenthumb/simple-i18n)
 
 <br />
-<br />
 
 ## Install
 ```sh
@@ -22,21 +21,21 @@ const SimpleI18n = require('@goldenthumb/simple-i18n');
 ## Example
 ```js
 const i18n = new SimpleI18n({
-  defaultLocale: ['en'],
-  locale: 'en',
-  messages: {
-    ['ko']: {
-      hello: '안녕하세요.'
-    },
-    ['en']: {
-      hello: 'hello.',
-      bye: 'goodbye.'
-    },
-    ['ja']: {
-      hello: 'こんにちは。',
-      bye: 'さようなら。'
+    defaultLocale: ['en'],
+    locale: 'en',
+    messages: {
+        ['ko']: {
+            hello: '안녕하세요.'
+        },
+        ['en']: {
+            hello: 'hello.',
+            bye: 'goodbye.'
+        },
+        ['ja']: {
+            hello: 'こんにちは。',
+            bye: 'さようなら。'
+        }
     }
-  }
 });
 
 i18n.message('hello')
@@ -54,13 +53,13 @@ i18n.message('bye')
 ```
 ```js
 const i18n = new SimpleI18n({
-  fallbackLocales: ['ko'],
-  locale: 'ko',
-  messages: {
-    ['ko']: {
-      product: '이것은 {{money}}원 이고, {{size}}개 들어있습니다.'
+    fallbackLocales: ['ko'],
+    locale: 'ko',
+    messages: {
+        ['ko']: {
+            product: '이것은 {{money}}원 이고, {{size}}개 들어있습니다.'
+        }
     }
-  }
 });
 
 i18n.message('product', { money: 500, size: 2 })
@@ -82,23 +81,24 @@ npm install @goldenthumb/simple-i18n @goldenthumb/simple-i18n-csv-to-json
 ```
 
 ```js
+import path from 'path';
+
 const SimpleI18n = require('@goldenthumb/simple-i18n');
 const toJson = require('@goldenthumb/simple-i18n-csv-to-json');
 
 (async () => {
-const messages = await toJson(path.resolve(__dirname, './sample.csv'));
-  const i18n = new SimpleI18n({
-    defaultLocale: ['en'],
-    locale: 'en',
-    messages
-  });
+    const i18n = new SimpleI18n({
+        fallbackLocales: ['en'],
+        locale: 'en',
+        messages: await toJson(path.resolve(__dirname, './sample.csv'))
+    });
 
-  i18n.message('yes')
-  > Yes.
+    i18n.message('yes')
+    > Yes.
 
-  i18n.switchLang('ja');
-  i18n.message('no');
-  > いいえ
+    i18n.switchLang('ja');
+    i18n.message('no');
+    > いいえ
 })();
 
 ```
