@@ -11,7 +11,7 @@
     ],
     "scripts": {
         "prepublishOnly": "npm run build",
-        "build": "microbundle build -i src/index.js --compress false",
+        "build": "rimraf dist && rollup -c rollup.config.js",
         "test": "jest test"
     },
     "repository": {
@@ -29,7 +29,9 @@
         "@goldenthumb/simple-i18n-csv-to-json": "^0.2.2",
         "babel-jest": "^24.9.0",
         "jest": "^24.9.0",
-        "microbundle": "^0.11.0"
+        "rimraf": "^3.0.0",
+        "rollup": "^1.29.0",
+        "rollup-plugin-babel": "^4.3.3"
     },
     "publishConfig": {
         "access": "public"

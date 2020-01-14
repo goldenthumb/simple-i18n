@@ -1,2 +1,77 @@
-var e=function(e){var t=e.fallbackLocales;void 0===t&&(t=["en"]);var s=e.locale;void 0===s&&(s="en");var a=e.messages;this._fallbackLocales=t,this._locale=s,this._messages=Object.assign({},a)};function t(e,t){return Object.prototype.hasOwnProperty.call(e,t)}e.prototype.getLocale=function(){return this._locale},e.prototype.setLocale=function(e){this._locale=e},e.prototype.all=function(){return Object.assign({},this._messages)},e.prototype.messages=function(e){return void 0===e&&(e=this._locale),Object.assign({},this._messages[e])},e.prototype.message=function(e,t){void 0===t&&(t={});var s=this._findMessage(e);if(!s)return e;for(var a=0,o=Object.entries(t);a<o.length;a+=1){var n=o[a],r=(e=n[0],n[1]);s=s.split("{{"+key$1+"}}").join(r)}return s},e.prototype._findMessage=function(e){for(var s=0,a=[this._locale].concat(this._fallbackLocales);s<a.length;s+=1){var o=a[s];if(t(this._messages[o],e))return this._messages[o][e]}};export default e;
-//# sourceMappingURL=index.mjs.map
+import _extends from '@babel/runtime/helpers/extends';
+
+var SimpleI18n =
+/*#__PURE__*/
+function () {
+  function SimpleI18n(_ref) {
+    var _ref$fallbackLocales = _ref.fallbackLocales,
+        fallbackLocales = _ref$fallbackLocales === void 0 ? ['en'] : _ref$fallbackLocales,
+        _ref$locale = _ref.locale,
+        locale = _ref$locale === void 0 ? 'en' : _ref$locale,
+        messages = _ref.messages;
+    this._fallbackLocales = fallbackLocales;
+    this._locale = locale;
+    this._messages = _extends({}, messages);
+  }
+
+  var _proto = SimpleI18n.prototype;
+
+  _proto.getLocale = function getLocale() {
+    return this._locale;
+  };
+
+  _proto.setLocale = function setLocale(locale) {
+    this._locale = locale;
+  };
+
+  _proto.all = function all() {
+    return _extends({}, this._messages);
+  };
+
+  _proto.messages = function messages(locale) {
+    if (locale === void 0) {
+      locale = this._locale;
+    }
+
+    return _extends({}, this._messages[locale]);
+  };
+
+  _proto.message = function message(key, templates) {
+    if (templates === void 0) {
+      templates = {};
+    }
+
+    var message = this._findMessage(key);
+
+    if (!message) return key;
+
+    for (var _i = 0, _Object$entries = Object.entries(templates); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _Object$entries[_i],
+          _key = _Object$entries$_i[0],
+          value = _Object$entries$_i[1];
+      message = message.split("{{" + _key + "}}").join(value);
+    }
+
+    return message;
+  };
+
+  _proto._findMessage = function _findMessage(key) {
+    for (var _i2 = 0, _arr = [this._locale].concat(this._fallbackLocales); _i2 < _arr.length; _i2++) {
+      var fallback = _arr[_i2];
+
+      if (hasOwn(this._messages[fallback], key)) {
+        return this._messages[fallback][key];
+      }
+    }
+
+    return undefined;
+  };
+
+  return SimpleI18n;
+}();
+
+function hasOwn(obj, key) {
+  return Object.prototype.hasOwnProperty.call(obj, key);
+}
+
+export default SimpleI18n;
